@@ -72,17 +72,17 @@ dependencies = [
 [project.optional-dependencies]
 fetchers = [
     "click>=8.3.0",
-    "curl_cffi>=0.15.0",
-    "playwright==1.60.0",
-    "patchright==1.60.1",
+    "curl_cffi>=0.16.3",
+    "playwright==1.64.0",
+    "patchright==1.64.1",
     "browserforge>=1.2.4",
     "apify-fingerprint-datapoints>=0.13.0",
     "msgspec>=0.21.1",
-    "anyio>=4.13.0",
-    "protego>=0.6.0",
+    "anyio>=4.14.2",
+    "protego>=0.6.2",
 ]
 ai = [
-    "mcp>=1.27.0",
+    "mcp>=1.30.0,<2",
     "markdownify>=1.2.0",
     "scrapling[fetchers]",
 ]

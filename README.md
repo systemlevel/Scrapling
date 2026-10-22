@@ -553,3 +553,22 @@ This project includes code adapted from:
 
 ---
 <div align="center"><small>Designed & crafted with ❤️ by Karim Shoair.</small></div><br>
+
+
+### Browser driver security runtime (2026-10-22)
+
+Current Python Playwright/Patchright wheels include Node 24.21.0, which is below
+the Brotli security release. Docker builds use a digest-pinned patched Node and
+check its version before each driver invocation. For a local installation, use
+a patched Node from its supported branch (22.23.4, 24.22.1, or 26.12.1 or newer)
+and set both variables before starting browser work:
+
+```sh
+export SECURITY_NODE_PATH="$(command -v node)"
+export PLAYWRIGHT_NODEJS_PATH="$PWD/scripts/playwright-node"
+```
+
+The wrapper fails if the selected Node is older than the security floor. Local
+installations that omit these variables still use the bundled runtime. This
+checks Node only; browser binaries and native curl libraries require their own
+security updates. No browser binaries were launched during this remediation.
